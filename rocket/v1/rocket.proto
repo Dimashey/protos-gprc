@@ -8,14 +8,8 @@ message Rocket {
     string type = 1;
 }
 
-service RocketService {
-    rpc GetRocket (GetRocketRequest) returns (GetRocketResponse);
-    rpc AddRocket (AddRocketRequest) returns (AddRocketResponse);
-    rpc DeleteRocket (DeleteRocketRequest) returns (DeleteRocketResponse);
-}
-
 message GetRocketRequest {
-    int64 id = 1;
+    string id = 1;
 }
 
 message GetRocketResponse {
@@ -31,9 +25,15 @@ message AddRocketResponse {
 }
 
 message DeleteRocketRequest {
-    int64 id = 1;
+    string id = 1;
 }
 
 message DeleteRocketResponse {
     string status = 1;
+}
+
+service RocketService {
+    rpc GetRocket (GetRocketRequest) returns (GetRocketResponse);
+    rpc AddRocket (AddRocketRequest) returns (AddRocketResponse);
+    rpc DeleteRocket (DeleteRocketRequest) returns (DeleteRocketResponse);
 }
